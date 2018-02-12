@@ -9,7 +9,7 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 > git clone https://github.com/d-bubnov/ApolloServer.git
 > cd ApolloServer
 > npm install
-> node server.js
+> npm start
 ```
 
 #### Not Familiar with Git?
@@ -18,5 +18,5 @@ Extract the contents of the zip file, then open your terminal, change to the pro
 
 ```
 > npm install
-> node server.js
+> npm start
 ```
