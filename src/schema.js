@@ -8,7 +8,7 @@ import resolvers from './resolvers'
 // The GraphQL schema in string form
 const typeDefs = `
     type PhysicalPerson {
-        id: ID! # "!" - it denotes a required field
+        id: ID!
         firstName: String
         lastName: String
         patronymic: String
@@ -16,8 +16,25 @@ const typeDefs = `
         rating: Float
     }
     
+    type Debt {
+        id: ID! 
+        description: String
+        dateStart: String
+        dateEnd: String
+        dueDate: String
+        hasPartialRedemption: Boolean
+        physicalPerson: PhysicalPerson!
+    }
+    
     type Query {
         physicalPersons: [PhysicalPerson]
+        physicalPerson(id: ID!): PhysicalPerson
+        debts: [Debt]
+        debt(id: ID!): Debt
+    }
+    
+    type Mutation {
+        addPhysicalPerson(firstName: String!, lastName: String!, patronymic: String, phoneNumber: String!) : PhysicalPerson
     }
 `;
 

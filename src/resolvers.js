@@ -2,10 +2,16 @@
  * The resolvers
 */
 
-import physicalPersons from './data/fakeData'
+import fakeData from './data/fakeData'
 
 const resolvers = {
-    Query: { physicalPersons: () => physicalPersons },
+    Query: {
+        physicalPersons: () => fakeData.physicalPersons,
+        physicalPerson: (root, { id }) => {
+            return fakeData.physicalPersons.find(pp => pp.id === id);
+        },
+        debts: () => fakeData.debts
+    }
 };
 
 export default resolvers;

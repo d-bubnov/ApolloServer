@@ -1,8 +1,10 @@
 // Some fake data
 
+const fakeData = [];
+
 const physicalPersons = [
     {
-        id: "322845fc-0146-4e3b-80f9-3aafa5de584d",
+        id: '322845fc-0146-4e3b-80f9-3aafa5de584d',
         firstName: 'Denis',
         lastName: 'Bubnov',
         patronymic: 'A.',
@@ -19,4 +21,19 @@ const physicalPersons = [
     },
 ];
 
-export default physicalPersons;
+const debts = [
+    {
+        id: '8583ff1f-fe4e-4dde-8f01-bd97651287ea',
+        description: 'Test debt one',
+        dateStart: '12.07.2017',
+        dateEnd: '',
+        dueDate: '12.09.2017',
+        hasPartialRedemption: false,
+        physicalPerson: null
+    }
+];
+
+fakeData.physicalPersons = physicalPersons;
+fakeData.debts = debts;
+
+export default fakeData;
