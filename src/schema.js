@@ -35,6 +35,7 @@ const typeDefs = `
     
     type Mutation {
         addPhysicalPerson(firstName: String!, lastName: String!, patronymic: String, phoneNumber: String!) : PhysicalPerson
+        createDebt(id: ID!, description: String!, dateStart: String, dateEnd: String, dueDate: String, physicalPersonId: ID!) : Debt
     }
 `;
 
