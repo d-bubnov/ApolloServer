@@ -3,7 +3,7 @@
  * */
 
 import { makeExecutableSchema } from 'graphql-tools';
-import resolvers from './resolvers'
+import resolvers from '../resolvers/resolvers'
 
 // The GraphQL schema in string form
 const typeDefs = `

@@ -2,16 +2,18 @@
  * The resolvers
 */
 
-import fakeData from './data/fakeData'
-import { PhysicalPersons, Debts } from './data/connectors'
+import { PhysicalPersons, Debts } from '../data/connector'
 
 const resolvers = {
     Query: {
-        physicalPersons: () => PhysicalPersons.all(),//fakeData.physicalPersons,
+        physicalPersons: () => PhysicalPersons.all(),
         physicalPerson: (root, { id }) => {
-            return fakeData.physicalPersons.find(pp => pp.id === id);
+            return PhysicalPersons.findOne({ where: { id: id } }).then( (physicalPerson) => {
+               console.log(physicalPerson);
+               return physicalPerson;
+            });
         },
-        debts: () => Debts.all() //fakeData.debts
+        debts: () => Debts.all()
     },
     Mutation: {
         createDebt: (root, { id, description, dateStart, dateEnd, dueDate, physicalPersonId }) => {
