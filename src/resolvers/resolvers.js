@@ -1,19 +1,19 @@
-/*
- * The resolvers
-*/
-
 import { PhysicalPersons, Debts } from '../data/connector'
 
 const resolvers = {
     Query: {
         physicalPersons: () => PhysicalPersons.all(),
         physicalPerson: (root, { id }) => {
-            return PhysicalPersons.findOne({ where: { id: id } }).then( (physicalPerson) => {
-               console.log(physicalPerson);
-               return physicalPerson;
-            });
+            return PhysicalPersons
+                .findOne({ where: { id: id } })
+                .then((physicalPerson) => { return physicalPerson; });
         },
-        debts: () => Debts.all()
+        debts: () => Debts.all(),
+        debt: (root, { id }) => {
+            return Debts
+                .findOne({where: { id: id }})
+                .then((debt) => { return debt; });
+        }
     },
     Mutation: {
         createDebt: (root, { id, description, dateStart, dateEnd, dueDate, physicalPersonId }) => {
